@@ -16,8 +16,8 @@
 
 .input {
   width: 100%;
-  padding: 10px;
-  padding-right: 14%;
+  padding: 20px 14%;
+  /* padding-right: 14%; */
   /* border-width: 0; */
   /* border: 1px solid lightblue; */
   border: none;
@@ -62,6 +62,16 @@
 
 .btn:active {
   background: #dfdfdf;
+}
+
+/* .zero {
+  grid-column: 1 / span 2;
+} */
+
+.clear {
+  grid-column: 2 / span 2;
+  border: 1px solid lightblue;
+  border-right: none;
 }
 
 .operator {

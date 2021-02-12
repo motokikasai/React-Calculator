@@ -1,12 +1,13 @@
 import React from 'react';
 
-const Operator = ({ numInput, clear }) => {
+const Operator = ({ numInput, clear, math }) => {
   const btnHandler = e => {
-    console.log(e.target.textContent);
     numInput(e.target.textContent);
   };
 
-  const mathOp = sign => {};
+  const mathOp = e => {
+    math(e.target.textContent);
+  };
 
   const clearHandler = () => {
     clear();
@@ -16,31 +17,37 @@ const Operator = ({ numInput, clear }) => {
     <div className='op-wrapper'>
       <div className='num-pad'>
         <button className='btn' onClick={btnHandler}>
-          9
+          7
         </button>
         <button className='btn' onClick={btnHandler}>
           8
         </button>
         <button className='btn' onClick={btnHandler}>
-          7
-        </button>
-        <button className='btn' onClick={btnHandler}>
-          6
-        </button>
-        <button className='btn' onClick={btnHandler}>
-          5
+          9
         </button>
         <button className='btn' onClick={btnHandler}>
           4
         </button>
         <button className='btn' onClick={btnHandler}>
-          3
+          5
+        </button>
+        <button className='btn' onClick={btnHandler}>
+          6
+        </button>
+        <button className='btn' onClick={btnHandler}>
+          1
         </button>
         <button className='btn' onClick={btnHandler}>
           2
         </button>
         <button className='btn' onClick={btnHandler}>
-          1
+          3
+        </button>
+        <button className='btn zero' onClick={btnHandler}>
+          0
+        </button>
+        <button className='btn clear' onClick={clearHandler}>
+          clear
         </button>
       </div>
       <div className='operator'>
@@ -59,10 +66,6 @@ const Operator = ({ numInput, clear }) => {
         <button className='btn btn-operator' onClick={mathOp}>
           =
         </button>
-      </div>
-
-      <div className='btn' onClick={clearHandler}>
-        Clear
       </div>
     </div>
   );
