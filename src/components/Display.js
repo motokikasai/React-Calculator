@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 
-const Display = () => {
-  const [input, setInput] = useState('');
-
+const Display = ({ input }) => {
+  //   const [directInput, setDirectInput] = useState('');
+  console.log(typeof input);
   const handleChange = e => {
     console.log('changed...');
 
-    setInput(e.target.value);
+    // setDirectInput(input + e.target.value);
   };
 
   return (
@@ -16,6 +16,7 @@ const Display = () => {
         value={input}
         onChange={handleChange}
         className='input'
+        placeholder='0'
       />
     </div>
   );

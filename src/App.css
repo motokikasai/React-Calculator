@@ -11,20 +11,38 @@
   /* background: #efefef; */
   max-width: 500px;
   margin: auto;
+  border: 1px solid lightblue;
 }
 
 .input {
   width: 100%;
   padding: 10px;
-  border-width: 0;
-  border: 1px solid lightblue;
-  text-align: center;
-  font-size: 2rem;
+  padding-right: 14%;
+  /* border-width: 0; */
+  /* border: 1px solid lightblue; */
+  border: none;
+  border-bottom: 1px solid lightblue;
+  text-align: right;
+  color: #404040;
+  font-size: 3.4rem;
+}
+
+.input:focus,
+.btn:focus {
+  outline: none;
 }
 
 .op-wrapper {
-  border: 1px solid lightblue;
-  border-top: none;
+  overflow: hidden;
+  /* border: 1px solid lightblue; */
+  /* border-top: none;
+  border-left: 1px solid lightblue; */
+}
+
+.num-pad {
+  display: grid;
+  /* grid-gap: 1px; */
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .btn {
@@ -33,11 +51,23 @@
   font-size: 2rem;
   padding: 30px;
   color: gray;
-  box-shadow: 0 0 0 1px lightblue;
+  /* box-shadow: 0 0 0 1px lightblue; */
+  /* border-right: 1px solid lightblue;
+  border-bottom: 1px solid lightblue; */
 }
 
-.num-pad {
-  display: grid;
-  grid-gap: 1px;
-  grid-template-columns: repeat(3, 1fr);
+.btn:hover {
+  background: #efefef;
+}
+
+.btn:active {
+  background: #dfdfdf;
+}
+
+.operator {
+  display: flex;
+}
+
+.btn-operator {
+  flex: auto;
 }
