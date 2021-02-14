@@ -9,12 +9,12 @@ const Calc = () => {
   const [mathOp, setMathOp] = useState('');
 
   const numInput = num => {
-    if (['+', '-', '*', '/'].includes(input) && num !== '0') {
+    if (['+', '-', '*', '/'].includes(input)) {
       setInput(num);
-    } else if (['+', '-', '*', '/'].includes(input) && num === '0') {
+    } else if (input[0] === '0' && num === '0') {
       return;
-    } else if (!input && num === '0') {
-      return;
+    } else if (input[0] === '0' && num !== '0') {
+      setInput(num);
     } else {
       setInput(input + num);
     }
