@@ -1,26 +1,28 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-const Display = ({ input }) => {
+const Display = ({ input, mathOp }) => {
   // const [btnInput, setBtnInput] = useState(input);
 
-  const inputElement = useRef(null);
+  const [inputValue, setInputValue] = useState('');
+  // setInputValue(input);
+  const inputElem = useRef(null);
   // const cursorPosition = 0;
 
   useEffect(() => {
-    console.log(inputElement.current);
-    // inputElement.current.focus();
-    // if (!inputElement.current.value) {
-    inputElement.current.scrollLeft = inputElement.current.scrollWidth;
-    inputElement.current.setSelectionRange(
-      inputElement.current.value.length,
-      inputElement.current.value.length
-    );
-    // }
+    console.log(inputElem.current);
 
-    // return () => {
-    //   cleanup;
-    // };
+    inputElem.current.scrollLeft = inputElem.current.scrollWidth;
+    inputElem.current.setSelectionRange(
+      inputElem.current.value.length,
+      inputElem.current.value.length
+    );
+
+    setInputValue(input);
   }, [input]);
+
+  useEffect(() => {
+    setInputValue('');
+  }, [mathOp]);
 
   // console.log(typeof btnInput);
 
@@ -34,12 +36,11 @@ const Display = ({ input }) => {
     <div>
       <input
         type='text'
-        ref={inputElement}
+        ref={inputElem}
         value={input}
         onChange={handleChange}
         className='input'
         placeholder='0'
-        // onFocus='this.value = this.value'
       />
     </div>
   );

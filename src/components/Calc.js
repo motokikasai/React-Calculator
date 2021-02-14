@@ -3,33 +3,35 @@ import Display from './Display';
 import Operator from './Operator';
 
 const Calc = () => {
-  // let result = [];
   // const inputElem = useRef();
 
   const [input, setInput] = useState('');
   const [mathOp, setMathOp] = useState('');
 
-  // useEffect(() => {
-  //   // result.push(input);
-  //   //   return () => {
-  //   //       cleanup
-  //   //   }
-
-  //   inputElem.current.focus();
-  // }, [input]);
-  //   //   if (mathOp) {
-  //   //     result.push(input);
-  //   //   }
-
-  const refInputFocus = () => {};
-
   const numInput = num => {
-    setInput(input + num);
+    if (['+', '-', '*', '/'].includes(input) && num !== '0') {
+      setInput(num);
+    } else if (['+', '-', '*', '/'].includes(input) && num === '0') {
+      return;
+    } else if (!input && num === '0') {
+      return;
+    } else {
+      setInput(input + num);
+    }
   };
 
   const mathOperator = op => {
-    console.log(op);
     setMathOp(op);
+    !input ? setInput('') : setInput(op);
+  };
+
+  const totalValue = () => {
+    console.log(
+      '%c Total value here!',
+      'color: orangered; font-size: 1.2rem; text-transform: capitalize;'
+    );
+
+    setInput('');
   };
 
   const clearInput = () => {
@@ -38,8 +40,13 @@ const Calc = () => {
 
   return (
     <div className='container'>
-      <Display input={input} />
-      <Operator numInput={numInput} clear={clearInput} math={mathOperator} />
+      <Display input={input} mathOp={mathOp} />
+      <Operator
+        numInput={numInput}
+        clear={clearInput}
+        math={mathOperator}
+        total={totalValue}
+      />
     </div>
   );
 };

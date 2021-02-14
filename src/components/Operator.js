@@ -1,12 +1,16 @@
 import React from 'react';
 
-const Operator = ({ numInput, clear, math }) => {
+const Operator = ({ numInput, clear, math, total }) => {
   const btnHandler = e => {
     numInput(e.target.textContent);
   };
 
-  const mathOp = e => {
+  const mathOperator = e => {
     math(e.target.textContent);
+  };
+
+  const totalValue = () => {
+    total();
   };
 
   const clearHandler = () => {
@@ -51,19 +55,19 @@ const Operator = ({ numInput, clear, math }) => {
         </button>
       </div>
       <div className='operator'>
-        <button className='btn btn-operator' onClick={mathOp}>
+        <button className='btn btn-operator' onClick={mathOperator}>
           +
         </button>
-        <button className='btn btn-operator' onClick={mathOp}>
+        <button className='btn btn-operator' onClick={mathOperator}>
           -
         </button>
-        <button className='btn btn-operator' onClick={mathOp}>
+        <button className='btn btn-operator' onClick={mathOperator}>
           *
         </button>
-        <button className='btn btn-operator' onClick={mathOp}>
+        <button className='btn btn-operator' onClick={mathOperator}>
           /
         </button>
-        <button className='btn btn-operator' onClick={mathOp}>
+        <button className='btn btn-total' onClick={totalValue}>
           =
         </button>
       </div>
