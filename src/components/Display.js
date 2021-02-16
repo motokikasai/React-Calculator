@@ -1,15 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 const Display = ({ input, mathOp }) => {
-  // const [btnInput, setBtnInput] = useState(input);
-
   const [inputValue, setInputValue] = useState('');
-  // setInputValue(input);
   const inputElem = useRef(null);
-  // const cursorPosition = 0;
 
   useEffect(() => {
-    console.log(inputElem.current);
+    // console.log(inputElem.current);
 
     inputElem.current.scrollLeft = inputElem.current.scrollWidth;
     inputElem.current.setSelectionRange(

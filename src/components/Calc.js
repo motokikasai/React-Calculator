@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Display from './Display';
 import Operator from './Operator';
+import UsePrevious from '../customHooks/usePrevious';
 
 const Calc = () => {
   // const inputElem = useRef();
@@ -20,9 +21,14 @@ const Calc = () => {
     }
   };
 
+  console.log('Preivous value is: ', UsePrevious(input));
+
   const mathOperator = op => {
     setMathOp(op);
     !input ? setInput('') : setInput(op);
+
+    let prev = parseFloat(input);
+    // console.log(UsePrevious(input));
   };
 
   const totalValue = () => {
